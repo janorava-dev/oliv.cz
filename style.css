@@ -1,10 +1,12 @@
 :root {
   color-scheme: light;
-  --bg: #faf8f4;
-  --ink: #1c1a17;
-  --muted: #6b6559;
-  --accent: #8a6d3b;
-  --line: #e4ddd0;
+  --bg: #f7f1e6;
+  --ink: #241b17;
+  --muted: #766a5c;
+  --accent: #8c2f39;
+  --accent-ink: #6e2129;
+  --line: #e3d8c4;
+  --card: #fffaf1;
 }
 
 * { box-sizing: border-box; }
@@ -14,18 +16,20 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: "Inter", system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 h1, h2 {
   font-family: "Fraunces", Georgia, serif;
-  font-weight: 600;
+  font-weight: 700;
 }
+
+a { color: var(--accent-ink); }
 
 .hero {
   position: relative;
-  height: 62vh;
-  min-height: 380px;
+  height: 64vh;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -40,7 +44,7 @@ h1, h2 {
 .hero-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(15,13,10,0.88) 100%);
+  background: linear-gradient(180deg, rgba(36,27,23,0) 35%, rgba(20,14,11,0.9) 100%);
 }
 
 .hero-text {
@@ -49,108 +53,208 @@ h1, h2 {
   right: 0;
   bottom: 0;
   padding: 28px 24px;
-  color: #fdfcfa;
-  max-width: 760px;
+  color: #fdf8ee;
+  max-width: 820px;
   margin: 0 auto;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e7b7a8;
 }
 
 .hero-text h1 {
-  margin: 0 0 6px;
-  font-size: clamp(28px, 5vw, 44px);
+  margin: 0 0 8px;
+  font-size: clamp(30px, 5vw, 48px);
 }
 
 .hero-text .title {
-  margin: 0 0 4px;
-  font-size: 16px;
-  opacity: 0.95;
+  margin: 0;
+  font-size: 17px;
+  color: #f0e6d8;
+  max-width: 620px;
 }
 
-.hero-text .location {
-  margin: 0;
-  font-size: 13px;
-  color: #d8d2c6;
-  letter-spacing: 0.03em;
+.hero-text .title strong {
+  color: #fff;
+}
+
+.jumpnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 16px;
+}
+
+.jumpnav a {
+  flex: 0 0 auto;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.jumpnav a:hover {
+  color: var(--accent-ink);
+  background: var(--card);
+}
+
+#dnes,
+.act,
+.contact {
+  scroll-margin-top: 52px;
 }
 
 main {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 40px 24px 20px;
+  padding: 44px 24px 20px;
 }
 
-.bio p {
-  font-size: 17px;
-  color: #2a2721;
+.intro p {
+  font-size: 18px;
+  color: #3a2d26;
+  max-width: 620px;
 }
 
-section + section {
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
+.act {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 2px solid var(--line);
 }
 
-h2 {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  margin: 0 0 16px;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-}
-
-.experience ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.act-head {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.experience li {
-  display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 10px;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
-.role {
-  font-weight: 600;
-}
-
-.org {
+.act-no {
+  font-family: "Fraunces", serif;
+  font-size: 40px;
   color: var(--accent);
+  line-height: 1;
 }
 
-.years {
-  margin-left: auto;
-  color: var(--muted);
-  font-size: 13px;
-  white-space: nowrap;
+.act-head h2 {
+  margin: 0 0 4px;
+  font-size: 26px;
 }
 
-.meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.tags {
-  list-style: none;
+.act-years {
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.tags li {
+.act-body {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.act-body.reverse {
+  grid-template-columns: 1.3fr 1fr;
+}
+
+.act-body.reverse .act-media { order: 2; }
+.act-body.reverse .act-text { order: 1; }
+
+.act-media {
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 12px;
+}
+
+.act-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.act-media.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+
+.act-media.placeholder span {
   font-size: 13px;
-  color: #4a4640;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.act-text p {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+.act-text .source {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.medailonek {
+  margin: 18px 0 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #4a382f;
+}
+
+.medailonek .fill {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.gallery {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+
+.contact {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 2px solid var(--line);
+}
+
+.contact p {
+  font-size: 16px;
 }
 
 .contact p {
@@ -158,24 +262,29 @@ h2 {
 }
 
 .contact a {
-  color: var(--ink);
   text-decoration: none;
   border-bottom: 1px solid var(--accent);
 }
 
-.contact a:hover {
-  color: var(--accent);
-}
-
 footer {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 20px 24px 40px;
+  padding: 24px 24px 44px;
   color: var(--muted);
   font-size: 12px;
 }
 
-@media (max-width: 520px) {
-  .meta { grid-template-columns: 1fr; }
-  .years { margin-left: 0; }
+@media (max-width: 680px) {
+  .act-body, .act-body.reverse {
+    grid-template-columns: 1fr;
+  }
+  .act-body.reverse .act-media,
+  .act-body.reverse .act-text,
+  .act-body .act-media,
+  .act-body .act-text {
+    order: initial;
+  }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
